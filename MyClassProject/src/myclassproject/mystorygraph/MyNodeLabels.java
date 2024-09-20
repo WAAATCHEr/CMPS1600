@@ -4,6 +4,7 @@ package myclassproject.mystorygraph;
 public enum MyNodeLabels{
 	root,
 	Bunker,
+	testing1,
 	pharmacy,
 	store,
 	outsideBunker,
