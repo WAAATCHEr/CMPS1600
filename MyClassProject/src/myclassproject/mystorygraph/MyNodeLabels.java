@@ -5,7 +5,7 @@ public enum MyNodeLabels{
 	root,
 	Bunker,
 	
-	testing,
+	testing2,
 	
 	
 	//other nodes
