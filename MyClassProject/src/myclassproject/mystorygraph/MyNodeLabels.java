@@ -4,6 +4,18 @@ package myclassproject.mystorygraph;
 public enum MyNodeLabels{
 	root,
 	Bunker,
+	pharmacy,
+	store,
+	outsideBunker,
+	Coast,
+	Forest,
+	alongWater,
+	Car,
+	campFire,
+	Hut,
+	City;
+	
+	
 	
 	//other nodes
 }
