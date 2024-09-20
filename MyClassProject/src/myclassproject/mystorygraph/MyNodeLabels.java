@@ -14,7 +14,7 @@ public enum MyNodeLabels{
 	campFire,
 	Hut,
 	City;
-	
+	Rooftop,
 	
 	
 	//other nodes
