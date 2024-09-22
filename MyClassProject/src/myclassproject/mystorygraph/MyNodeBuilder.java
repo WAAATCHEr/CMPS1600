@@ -150,22 +150,11 @@ public class MyNodeBuilder extends NodeBuilder {
 	@BuilderMethod
 	public void runFromAnimalActions() {
 		var node = get(MyNodeLabels.runFromAnimal.toString());
-	}
-	@BuilderMethod
-	public void stayAlongCoastActions() {
-		var node = get(MyNodeLabels.stayAlongCoast.toString());
+		node.add(new FadeOut()).add(new SetPosition(animal,bunker)).add(new FadeIn());
 	}
 	@BuilderMethod
 	public void followWaterTrailActions() {
 		var node = get(MyNodeLabels.followWaterTrail.toString());
-	}
-	@BuilderMethod
-	public void catchFishActions() {
-		var node = get(MyNodeLabels.catchFish.toString());
-	}
-	@BuilderMethod
-	public void keepWalkingOnCoastActions() {
-		var node = get(MyNodeLabels.keepWalkingOnCoast.toString());
 	}
 	@BuilderMethod
 	public void seeHutActions() {
