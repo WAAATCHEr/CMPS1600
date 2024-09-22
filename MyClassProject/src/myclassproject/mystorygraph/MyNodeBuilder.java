@@ -21,118 +21,156 @@ public class MyNodeBuilder extends NodeBuilder {
 		//root.add(new CreateAll(List.of(cottage, town, sword)));
 		var node = get(MyNodeLabels.root.toString());
 	}
+	@BuilderMethod
 	public void stayInBunkerActions() {
 		var node = get(MyNodeLabels.stayInBunker.toString());
 	}
+	@BuilderMethod
 	public void leaveBunkerActions() {
 		var node = get(MyNodeLabels.leaveBunker.toString());
 	}
+	@BuilderMethod
 	public void atStoreActions() {
 		var node = get(MyNodeLabels.atStore.toString());
 	}
+	@BuilderMethod
 	public void atHospitalActions() {
 		var node = get(MyNodeLabels.atHospital.toString());
 	}
+	@BuilderMethod
 	public void atForestActions() {
 		var node = get(MyNodeLabels.atForest.toString());
 	}
+	@BuilderMethod
 	public void purpleBerriesActions() {
 		var node = get(MyNodeLabels.purpleBerries.toString());
 	}
+	@BuilderMethod
 	public void redBerriesActions() {
 		var node = get(MyNodeLabels.redBerries.toString());
 	}
+	@BuilderMethod
 	public void carInForestActions() {
 		var node = get(MyNodeLabels.carInForest.toString());
 	}
+	@BuilderMethod
 	public void leaveStoreActions() {
 		var node = get(MyNodeLabels.leaveStore.toString());
 	}
+	@BuilderMethod
 	public void leaveHospitalActions() {
 		var node = get(MyNodeLabels.leaveHospital.toString());
 	}
+	@BuilderMethod
 	public void atCoastActions() {
 		var node = get(MyNodeLabels.atCoast.toString());
 	}
+	@BuilderMethod
 	public void stopForCarActions() {
 		var node = get(MyNodeLabels.stopForCar.toString());
 	}
+	@BuilderMethod
 	public void moreForestActions() {
 		var node = get(MyNodeLabels.moreForest.toString());
 	}
+	@BuilderMethod
 	public void petAnimalActions() {
 		var node = get(MyNodeLabels.petAnimal.toString());
 	}
+	@BuilderMethod
 	public void OasisActions() {
 		var node = get(MyNodeLabels.Oasis.toString());
 	}
+	@BuilderMethod
 	public void runFromAnimalActions() {
 		var node = get(MyNodeLabels.runFromAnimal.toString());
 	}
+	@BuilderMethod
 	public void stayAlongCoastActions() {
 		var node = get(MyNodeLabels.stayAlongCoast.toString());
 	}
+	@BuilderMethod
 	public void followWaterTrailActions() {
 		var node = get(MyNodeLabels.followWaterTrail.toString());
 	}
+	@BuilderMethod
 	public void catchFishActions() {
 		var node = get(MyNodeLabels.catchFish.toString());
 	}
+	@BuilderMethod
 	public void keepWalkingOnCoastActions() {
 		var node = get(MyNodeLabels.keepWalkingOnCoast.toString());
 	}
+	@BuilderMethod
 	public void seeHutActions() {
 		var node = get(MyNodeLabels.seeHut.toString());
 	}
+	@BuilderMethod
 	public void lostInForestActions() {
 		var node = get(MyNodeLabels.lostInForest.toString());
 	}
+	@BuilderMethod
 	public void safetyConversationActions() {
-		var root = get(MyNodeLabels.
+		var node = get(MyNodeLabels.safetyConversation.toString());
 	}
-	public void dyingPersonActionsActions() {
-		var root = get(MyNodeLabels.
+	@BuilderMethod
+	public void dyingPersonActions() {
+		var node = get(MyNodeLabels.dyingPerson.toString());
 	}
+	@BuilderMethod
 	public void northActions() {
-		var root = get(MyNodeLabels.
+		var node = get(MyNodeLabels.north.toString());
 	}
+	@BuilderMethod
 	public void stayWithDyingPersonActions() {
-		var root = get(MyNodeLabels.
+		var node = get(MyNodeLabels.stayWithDyingPerson.toString());
 	}
+	@BuilderMethod
 	public void leaveDyingPersonActions() {
-		var root = get(MyNodeLabels.
+		var node = get(MyNodeLabels.leaveDyingPerson.toString());
 	}
+	@BuilderMethod
 	public void searchBodyActions() {
-		var root = get(MyNodeLabels.
+		var node = get(MyNodeLabels.searchBody.toString());
 	}
+	@BuilderMethod
 	public void sitThereAndCryActions() {
-		var root = get(MyNodeLabels.
+		var node = get(MyNodeLabels.sitThereAndCry.toString());
 	}
+	@BuilderMethod
 	public void afterDeathActions() {
-		var root = get(MyNodeLabels.
+		var node = get(MyNodeLabels.afterDeath.toString());
 	}
+	@BuilderMethod
 	public void goWithPartyActions() {
-		var root = get(MyNodeLabels.
+		var node = get(MyNodeLabels.goWithParty.toString());
 	}
+	@BuilderMethod
 	public void goAloneActions() {
-		var root = get(MyNodeLabels.
+		var node = get(MyNodeLabels.goAlone.toString());
 	}
+	@BuilderMethod
 	public void complyWithPartyActions() {
-		var root = get(MyNodeLabels.
+		var node = get(MyNodeLabels.complyWithParty.toString());
 	}
+	@BuilderMethod
 	public void runAwayFromPartyActions() {
-		var root = get(MyNodeLabels.
+		var node = get(MyNodeLabels.runAwayFromParty.toString());
 	}
+	@BuilderMethod
 	public void southActions() {
-		var root = get(MyNodeLabels.
+		var node = get(MyNodeLabels.south.toString());
 	}
+	@BuilderMethod
 	public void lastCarActions() {
-		var root = get(MyNodeLabels.
+		var node = get(MyNodeLabels.lastCar.toString());
 	}
+	@BuilderMethod
 	public void dontGoToCityActions() {
-		var root = get(MyNodeLabels.
+		var node = get(MyNodeLabels.dontGoToCity.toString());
 	}
+	@BuilderMethod
 	public void goToCityActions() {
-		var root = get(MyNodeLabels.
+		var node = get(MyNodeLabels.goToCity.toString());
 	}
 }
