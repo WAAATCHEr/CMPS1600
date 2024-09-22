@@ -227,7 +227,7 @@ public class MyNodeBuilder extends NodeBuilder {
 	@BuilderMethod
 	public void complyWithPartyActions() {
 		var node = get(MyNodeLabels.complyWithParty.toString());
-		node.add(new Draw(dad,food)).add((new Take(stranger, food, dad));
+		node.add(new Draw(dad,food)).add((new Take(stranger, food, dad)));
 		//add dialogue, set position
 	}
 	@BuilderMethod
