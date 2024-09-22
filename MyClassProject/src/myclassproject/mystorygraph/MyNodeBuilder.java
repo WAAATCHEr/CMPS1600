@@ -261,7 +261,7 @@ public class MyNodeBuilder extends NodeBuilder {
 		node.add(new WalkTo(dad,car)).add(new Kneel(dad))
 		.add(new NarrationSequence("It works!!"))
 		.add(new Dance(dad)).add(new FadeOut())
-		.add(setPosition(dad,city)).add(new FadeIn())
+		.add(new SetPosition(dad,city)).add(new FadeIn())
 		.add(new NarrationSequence("You made it to the safe haven!! There is hope for humanity!"));
 	}
 }
