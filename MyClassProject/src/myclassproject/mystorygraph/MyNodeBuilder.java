@@ -127,6 +127,7 @@ public class MyNodeBuilder extends NodeBuilder {
 	public void stopForCarActions() {
 		var node = get(MyNodeLabels.stopForCar.toString());
 		//node.add(new EnableEffect(dad,hurt));
+		
 	}
 	@BuilderMethod
 	public void moreForestActions() {
@@ -155,6 +156,7 @@ public class MyNodeBuilder extends NodeBuilder {
 	@BuilderMethod
 	public void followWaterTrailActions() {
 		var node = get(MyNodeLabels.followWaterTrail.toString());
+		//Effect stuff son gets hurt here 
 	}
 	@BuilderMethod
 	public void seeHutActions() {
