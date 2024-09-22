@@ -1,7 +1,26 @@
 package myclassproject.mystorygraph;
 
+import static myclassproject.mystorygraph.MyStoryEntities.dad;
+import static myclassproject.mystorygraph.MyStoryEntities.son;
+import static myclassproject.mystorygraph.MyStoryEntities.stranger;
+import static myclassproject.mystorygraph.MyStoryEntities.forest;
+import static myclassproject.mystorygraph.MyStoryEntities.bunker;
+import static myclassproject.mystorygraph.MyStoryEntities.hut;
+import static myclassproject.mystorygraph.MyStoryEntities.store;
+import static myclassproject.mystorygraph.MyStoryEntities.hospital;
+import static myclassproject.mystorygraph.MyStoryEntities.city;
+import static myclassproject.mystorygraph.MyStoryEntities.food;
+import static myclassproject.mystorygraph.MyStoryEntities.medicine;
+
 import java.util.List;
 
+import com.actions.Draw;
+import com.actions.Face;
+import com.actions.SetCameraFocus;
+import com.actions.SetPosition;
+import com.actions.ShowMenu;
+import com.sequences.CreateAll;
+import com.sequences.CreateCharacterSequence;
 import com.storygraph.*;
 
 public class MyNodeBuilder extends NodeBuilder {
@@ -19,7 +38,11 @@ public class MyNodeBuilder extends NodeBuilder {
 	public void rootActions() {
 		//var root = get(NodeLabels.root.toString());
 		//root.add(new CreateAll(List.of(cottage, town, sword)));
-		var node = get(MyNodeLabels.root.toString());
+		var root = get(MyNodeLabels.root.toString());
+		root.add(new CreateAll(List.of(hospital, forest,bunker,city,hut,store,food,medicine))).add(new CreateCharacterSequence(dad))
+		.add(new CreateCharacterSequence(son)).add(new SetPosition(dad, forest))
+		.add(new SetPosition(son, forest)).add(new Face(dad, son))
+		.add(new SetCameraFocus(dad)).add(new ShowMenu());
 	}
 	@BuilderMethod
 	public void stayInBunkerActions() {
