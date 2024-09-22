@@ -30,7 +30,9 @@ public final class MyStoryEntities {
 	public static final Place coast = new Place("Coast", PlaceTypes.Port);
 	public static final Place city = new Place("City", PlaceTypes.City);
 	public static final Place oasis = new Place("Oasis",PlaceTypes.Farm);
+	public static final Place dungeon = new Place("Dungeon",PlaceTypes.Dungeon);
 	public static final Item medicine = new Item("medicine", ItemTypes.BluePotion);
+	public static final Item sword = new Item("sword",ItemTypes.Sword);
 	public static final Item food = new Item("food", ItemTypes.Bread);
 	public static final Item car = new Item("Car",ItemTypes.Compass);
 	public static final Item berry = new Item("Berry",ItemTypes.Apple);
