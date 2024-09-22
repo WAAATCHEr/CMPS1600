@@ -3,20 +3,6 @@ package myclassproject.mystorygraph;
 //Fill this enum with the labels you chose for the NODES of your story graph.
 public enum MyNodeLabels{
 	root,
-<<<<<<< HEAD
-	Bunker,
-	pharmacy,
-	store,
-	outsideBunker,
-	Coast,
-	Forest,
-	alongWater,
-	Car,
-	campFire,
-	Hut,
-	City;
-	Rooftop,
-=======
 	stayInBunker,
 	leaveBunker,
 	atStore,
@@ -56,9 +42,7 @@ public enum MyNodeLabels{
 	dontGoToCity,
 	goToCity
 	
-	
->>>>>>> branch 'main' of https://github.com/WAAATCHEr/CMPS1600.git
-	
+		
 	
 	//other nodes
 }
