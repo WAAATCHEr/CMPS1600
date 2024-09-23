@@ -17,6 +17,10 @@ public class MyNodeBuilder extends NodeBuilder {
 	 * These methods must have a BuilderMethod annotation.
 	 */
 	@BuilderMethod
+	
+// EDUARDO HAEGLER PILNIK 
+	
+	
 	public void rootActions() {
 		//var root = get(NodeLabels.root.toString());
 		//root.add(new CreateAll(List.of(cottage, town, sword)));
@@ -114,6 +118,9 @@ public class MyNodeBuilder extends NodeBuilder {
 				List.of("yes", "no")));
 		
 	}
+	
+	
+	
 	@BuilderMethod
 	public void petAnimalActions() {
 		var node = get(MyNodeLabels.petAnimal.toString());

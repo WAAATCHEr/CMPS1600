@@ -19,6 +19,9 @@ public final class MyStoryEntities {
 	//e.g. public static final Characters player = new Characters("Player", BodyTypes.D, Clothing.Peasant, HairStyle.Short, Colors.Black, 6);
 	//You can access these instances in your EdgeBuilder and NodeBuilder classes by importing:
 	//import static myclassproject.mystorygraph.MyStoryEntities.*;
+	
+	//EDUARDO HAEGLER PILNIK 
+	
 	public static final Characters dad = new Characters("Dad", BodyTypes.A, Clothing.Peasant, HairStyle.Short, Colors.Black, 6);
 	public static final Characters son = new Characters("Son", BodyTypes.D, Clothing.Peasant, HairStyle.Short, Colors.Brown, 3);
 	public static final Characters stranger = new Characters("Stranger", BodyTypes.F, Clothing.Bandit, HairStyle.Bald, Colors.Black, 4);
