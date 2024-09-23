@@ -1,53 +1,15 @@
 package myclassproject.mystorygraph;
 
 import static myclassproject.mystorygraph.MyStoryEntities.*;
-/*import static myclassproject.mystorygraph.MyStoryEntities.dad;
-import static myclassproject.mystorygraph.MyStoryEntities.son;
-import static myclassproject.mystorygraph.MyStoryEntities.stranger;
-import static myclassproject.questexample.QuestStoryEntities.bandit;
-import static myclassproject.questexample.QuestStoryEntities.player;
-import static myclassproject.questexample.QuestStoryEntities.sword;
-import static myclassproject.mystorygraph.MyStoryEntities.forest;
-import static myclassproject.mystorygraph.MyStoryEntities.bunker;
-import static myclassproject.mystorygraph.MyStoryEntities.hut;
-import static myclassproject.mystorygraph.MyStoryEntities.store;
-import static myclassproject.mystorygraph.MyStoryEntities.hospital;
-import static myclassproject.mystorygraph.MyStoryEntities.city;
-import static myclassproject.mystorygraph.MyStoryEntities.food;
-import static myclassproject.mystorygraph.MyStoryEntities.medicine;
-import static myclassproject.mystorygraph.MyStoryEntities.car;
-import static myclassproject.mystorygraph.MyStoryEntities.berry;
-import static myclassproject.mystorygraph.MyStoryEntities.animal;
-import static myclassproject.mystorygraph.MyStoryEntities.oasis;
-import static myclassproject.mystorygraph.MyStoryEntities.dungeon;*/
-
-
-
 import java.util.List;
 import com.actions.*;
-/*import com.actions.Draw;
-import com.actions.Drink;
-import com.actions.EnableInput;
-import com.actions.Face;
-import com.actions.HideDialog;
-import com.actions.HideMenu;
-import com.actions.Pocket;
-import com.actions.SetCameraFocus;
-import com.actions.SetPosition;
-import com.actions.ShowMenu;
-import com.actions.Take;*/
 import com.sequences.*;
-/* import com.sequences.CreateAll;
-import com.sequences.CreateCharacterSequence;
-import com.sequences.DialogSequence;
-import com.sequences.NarrationSequence; */
 import com.storygraph.*;
 
 public class MyNodeBuilder extends NodeBuilder {
 	public MyNodeBuilder(List<Node> list) {
 		super(list);
 	}
-
 	/**
 	 * Write a method for each node. 
 	 * Use get to get a reference to the node using its label.
@@ -137,10 +99,11 @@ public class MyNodeBuilder extends NodeBuilder {
 	public void stopForCarActions() {
 		var node = get(MyNodeLabels.stopForCar.toString());
 		node.add(new WalkTo(dad, car)).add(new Kneel(dad))
-		.add(new NarrationSequence("You try to start the car.")).add(new HideNarration());
+		.add(new NarrationSequence("You try to start the car.")).add(new HideNarration())
 		/* dads supposed to get hurt
 		.add(new EnableEffect(Blood))
 		/can't figure out how to make it work */
+		.add(new NarrationSequence("You get hurt, but you feel fine enough to move."));
 		
 	}
 	@BuilderMethod
@@ -154,17 +117,31 @@ public class MyNodeBuilder extends NodeBuilder {
 	@BuilderMethod
 	public void petAnimalActions() {
 		var node = get(MyNodeLabels.petAnimal.toString());
-		node.add(new WalkTo(dad,animal)).add(new Kneel(dad));
+		node.add(new WalkTo(dad,animal)).add(new Kneel(dad))
+		.add(new NarrationSequence("The animal likes you! It leads you to its water source.."))
+		.add(new HideNarration())
+		.add(new FadeOut()).add(new SetPosition(dad, oasis)).add(new SetPosition(son, oasis))
+		.add(new SetPosition(stranger, oasis)).add(new FadeIn());
+		
 	}
 	@BuilderMethod
 	public void OasisActions() {
 		var node = get(MyNodeLabels.Oasis.toString());
-		node.add(new SetPosition(stranger,oasis)).add(new Face(dad, stranger));	
+		node.add(new Face(dad, stranger))
+		.add(new DialogSequence(stranger, dad, List.of("Welcome to the Oasis! We are a peaceful community."),
+				List.of("Thank you, we have been on the road for a while.")))
+		.add(new HideDialog())
+		.add(new NarrationSequence("You finally feel safe."))
+		.add(new FadeOut()).add(new Wait(5)).add(new FadeIn())
+		.add(new NarrationSequence("A few days later..."))
+		.add(new HideNarration());
 	}
 	@BuilderMethod
 	public void runFromAnimalActions() {
 		var node = get(MyNodeLabels.runFromAnimal.toString());
-		node.add(new FadeOut()).add(new SetPosition(animal,bunker)).add(new FadeIn());
+		node.add(new FadeOut()).add(new SetPosition(animal,bunker)).add(new FadeIn())
+		.add(new NarrationSequence("You are now deeper into the forest."))
+		.add(new HideNarration());
 	}
 	@BuilderMethod
 	public void followWaterTrailActions() {
@@ -186,24 +163,30 @@ public class MyNodeBuilder extends NodeBuilder {
 	@BuilderMethod
 	public void lostInForestActions() {
 		var node = get(MyNodeLabels.lostInForest.toString());
-		node.add(new NarrationSequence("You are wandering around aimlessly, with no sense of where to go."));
+		node.add(new NarrationSequence("You are wandering around aimlessly, with no sense of where to go."))
+		.add(new HideNarration());
 	}
 	@BuilderMethod
 	public void safetyConversationActions() {
 		var node = get(MyNodeLabels.safetyConversation.toString());
-		node.add(new DialogSequence(stranger, dad, List.of("We know how to get to a safer place. Do you want to come with us?"),
-				List.of("yes", "no")));
+		node.add(new DialogSequence(stranger, dad, List.of("This place won't last forever... "
+				+ "We know how to get to a safer place. Do you want to come with us?"),
+				List.of("Of course!", "No, we'll try our luck on the road again.")));
 	}
 	@BuilderMethod
 	public void dyingPersonActions() {
 		var node = get(MyNodeLabels.dyingPerson.toString());
-		//add narration
-		node.add(new Die(son));	} //its really whoever has the sickness effect on them that dies
+		node.add(new Die(son))	//its really whoever has the sickness effect on them that dies
+		.add(new NarrationSequence("They succombed to their injuries.."))
+		.add(new HideNarration());
+	} 
 	
 	@BuilderMethod
 	public void northActions() {
 		var node = get(MyNodeLabels.north.toString());
-		//narration
+		node.add(new NarrationSequence("There is nothing for miles.."
+				+ "maybe it's time to change direction"));
+		//force player to choose south
 	}
 	
 	
@@ -217,15 +200,31 @@ public class MyNodeBuilder extends NodeBuilder {
 	@BuilderMethod
 	public void stayWithDyingPersonActions() {
 		var node = get(MyNodeLabels.stayWithDyingPerson.toString());
+		node.add(new NarrationSequence("You decide to stay with their body to mourn. You wonder what to do next"))
+		.add(new HideNarration())
+		.add(new WalkTo(dad,son)).add(new Kneel(dad));
 		//you are with them while they pass away. do you search their body for supplies or sit there and cry?
 	}
 	@BuilderMethod
 	public void leaveDyingPersonActions() {
 		var node = get(MyNodeLabels.leaveDyingPerson.toString());
+		node.add(new NarrationSequence("You decide to leave..."))
+		.add(new HideNarration())
+		.add(new NarrationSequence("You need to move on. Where do you go?"))
+		.add(new HideNarration()); //north or south decision
 	}
 	@BuilderMethod
 	public void searchBodyActions() {
 		var node = get(MyNodeLabels.searchBody.toString());
+		node.add(new NarrationSequence("You decide to look in their pockets for supplies.. but for some reason there is only a wallet."))
+		.add(new HideNarration())
+		.add(new NarrationSequence("You hold it up to see whats in it and an ID falls out!"))
+		.add(new HideNarration())
+		.add(new NarrationSequence("While the picture is the same, the name is different.."))
+		.add(new HideNarration())
+		//son or whoever dies
+		.add(new NarrationSequence("Your son wasn't really your son... They were assigned to assassinate you all along."))
+		.add(new HideNarration());
 	}
 	@BuilderMethod
 	public void sitThereAndCryActions() {
@@ -236,8 +235,10 @@ public class MyNodeBuilder extends NodeBuilder {
 	@BuilderMethod
 	public void afterDeathActions() {
 		var node = get(MyNodeLabels.afterDeath.toString());
+		node.add(new SetNight())
+		.add(new NarrationSequence("Nonetheless, you are starving and in pain. You have to do something or else you will die here too."))
+		.add(new HideNarration());
 		
-
 	}
 	@BuilderMethod
 	public void goWithPartyActions() {
@@ -249,7 +250,6 @@ public class MyNodeBuilder extends NodeBuilder {
 		.add(new DialogSequence(stranger, dad, List.of("Give me everything you have!"),
 				List.of("Please don't do anything!")))
 		.add(new HideDialog());
-		
 	}
 	@BuilderMethod
 	public void goAloneActions() {
@@ -262,8 +262,10 @@ public class MyNodeBuilder extends NodeBuilder {
 	@BuilderMethod
 	public void complyWithPartyActions() {
 		var node = get(MyNodeLabels.complyWithParty.toString());
-		node.add(new Draw(dad,food)).add((new Take(stranger, food, dad)));
-		//add dialogue, set position
+		node.add(new Draw(dad,food)).add((new Take(stranger, food, dad)))
+		.add(new DialogSequence(stranger, dad, List.of("Now go before I change my mind about what to do with you."),
+				List.of("Thank you. Let's get out of here, son.")))
+		.add(new FadeOut()).add(new SetPosition(dad, forest)).add(new SetPosition(son,forest)).add(new FadeIn());
 	}
 	@BuilderMethod
 	public void runAwayFromPartyActions() {
@@ -276,11 +278,14 @@ public class MyNodeBuilder extends NodeBuilder {
 	public void southActions() {
 		var node = get(MyNodeLabels.south.toString());
 		//narration
+		node.add(new FadeOut()).add(new SetPosition(car, forest)).add(new FadeIn())
+		.add(new NarrationSequence("You see something in the distance..."))
+		.add(new HideNarration());
 	}
 	@BuilderMethod
 	public void lastCarActions() {
 		var node = get(MyNodeLabels.lastCar.toString());
-		node.add(new SetPosition(car, forest)).add(new NarrationSequence("There's another car! Do you try to fix it?"));
+		node.add(new NarrationSequence("There's another car! Do you try to fix it?"));
 		
 	}
 	@BuilderMethod
