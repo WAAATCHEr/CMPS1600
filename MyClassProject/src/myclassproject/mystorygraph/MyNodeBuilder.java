@@ -108,7 +108,9 @@ public class MyNodeBuilder extends NodeBuilder {
 		.add(new EnableEffect(Blood))
 		/can't figure out how to make it work */
 		.add(new NarrationSequence("You get hurt, but you feel fine enough to move."));
-		
+	
+	
+	//ANGELO ORELLANA
 	}
 	@BuilderMethod
 	public void moreForestActions() {
