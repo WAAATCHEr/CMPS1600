@@ -29,4 +29,89 @@ public class MyEdgeBuilder extends NodeBuilder {
 		//var nextNode = get(NodeLabels.atCottage.toString());
 		//root.add(new Edge(choice, nextNode));
 	}
+	
+	@BuilderMethod
+	public void stayInBunkerEdges() {
+		
+	}
+	
+	@BuilderMethod
+	public void leaveBunkerEdges() {
+		
+	}
+	
+	@BuilderMethod
+	public void atStoreEdges() {
+		
+	}
+	
+	@BuilderMethod
+	public void atHospitalEdges() {
+		
+	}
+	
+	@BuilderMethod
+	public void atForestEdges() {
+		
+	}
+	
+	@BuilderMethod
+	public void purpleBerriesEdges() {
+		
+	}
+	
+	@BuilderMethod
+	public void redBerriesEdges() {
+		
+	}
+	
+	@BuilderMethod
+	public void carInForestEdges() {
+		
+	}
+	
+	@BuilderMethod
+	public void leaveStoreEdges() {
+		
+	}
+	
+	@BuilderMethod
+	public void leaveHospitalEdges() {
+		
+	}
+	
+	@BuilderMethod
+	public void atCoastEdges() {
+		
+	}
+	
+	@BuilderMethod
+	public void stopForCarEdges() {
+		
+	}
+	
+	@BuilderMethod
+	public void moreForestEdges() {
+		
+	}
+	
+	@BuilderMethod
+	public void petAnimalEdges() {
+		
+	}
+	
+	@BuilderMethod
+	public void OasisEdges() {
+		
+	}
+	
+	@BuilderMethod
+	public void runFromAnimalEdges() {
+		
+	}
+	
+	@BuilderMethod
+	public void followWaterTrailEdges() {
+		
+	}
 }
