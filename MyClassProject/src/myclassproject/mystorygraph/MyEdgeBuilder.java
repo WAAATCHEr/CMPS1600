@@ -28,6 +28,5 @@ public class MyEdgeBuilder extends NodeBuilder {
 		//var choice = new MenuChoice(MenuChoice.Options.Start);
 		//var nextNode = get(NodeLabels.atCottage.toString());
 		//root.add(new Edge(choice, nextNode));
-		//commet for push purposes
 	}
 }
