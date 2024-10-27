@@ -190,7 +190,7 @@ public class MyEdgeBuilder extends NodeBuilder {
 	    @BuilderMethod
 	    public void oasisEdges() {
 	        var node = get("oasis");
-	        var choice = new MenuChoice(MenuChoice.Options.Choose);
+	        var choice = new MenuChoice(MenuChoice.Options.Choose); 
 	        var nextNode = get("someNextNode");  // Specify appropriate next node based on game logic
 	        node.add(new Edge(choice, nextNode));
 	    }
