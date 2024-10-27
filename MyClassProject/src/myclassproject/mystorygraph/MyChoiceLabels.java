@@ -4,7 +4,7 @@ package myclassproject.mystorygraph;
 public enum MyChoiceLabels {
 	leaveBunker,redBerries,blueBerries,stopForCar,leaveCar,stayOnCoast,stayOnForest,
 	followWater,dontFollowWater,petAnimal,runFromAnimal,goWithGroup,stayAlone,leaveBody,stayWithBody,
-	searchBody,cry,complyWithParty,runFromParty,goNorth,goSouth,fixCar;
+	searchBody,cry,complyWithParty,runFromParty,goNorth,goSouth,fixCar,carInForest;
 	
 }
 
