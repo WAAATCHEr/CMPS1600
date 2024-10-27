@@ -40,6 +40,8 @@ public class MyEdgeBuilder extends NodeBuilder {
 		//root.add(new Edge(choice, nextNode));
 	//}
 	
+	//Eduardo Haegler Pilnik
+	
 	   @BuilderMethod
 	    public void rootEdges() {
 	        var root = get(MyNodeLabels.root.toString());
@@ -148,6 +150,8 @@ public class MyEdgeBuilder extends NodeBuilder {
 	        var nextNode2 = get(MyNodeLabels.atForest.toString());
 	        node.add(new Edge(choice2, nextNode2));
 	    }
+	    
+	    //Caitlyn Gifford
 
 	    @BuilderMethod
 	    public void atcoastEdges() {
@@ -251,6 +255,8 @@ public class MyEdgeBuilder extends NodeBuilder {
 	        var nextNode2 = get(MyNodeLabels.leaveDyingPerson.toString());
 	        node.add(new Edge(choice2, nextNode2));
 	    }
+	    
+	    //Angelo Orellana
 
 	    @BuilderMethod
 	    public void northEdges() {

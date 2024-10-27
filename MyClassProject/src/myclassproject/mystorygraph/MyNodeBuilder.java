@@ -42,7 +42,7 @@ public class MyNodeBuilder extends NodeBuilder {
 	public void leaveBunkerActions() {
 		var node = get(MyNodeLabels.leaveBunker.toString());
 		node.add(new HideMenu()).add(new HideDialog())
-		.add(new SetPosition(son,forest)).add(new SetPosition(dad,forest));
+		.add(new SetPosition(son,forest)).add(new SetPosition(dad,forest)); 
 	}
 	@BuilderMethod
 	public void atStoreActions() {
