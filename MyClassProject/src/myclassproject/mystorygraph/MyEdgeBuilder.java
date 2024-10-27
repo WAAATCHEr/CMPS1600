@@ -181,176 +181,195 @@ public class MyEdgeBuilder extends NodeBuilder {
 
 	    @BuilderMethod
 	    public void petanimalEdges() {
-	        var node = get("petanimal");
-	        var choice = new MenuChoice(MenuChoice.Options.Choose);
-	        var nextNode = get("someNextNode");  // Specify appropriate next node based on game logic
+	        var node = get(MyNodeLabels.petAnimal.toString());
+	        var choice = new CloseNarrationChoice();
+	        var nextNode = get(MyNodeLabels.Oasis.toString());  
 	        node.add(new Edge(choice, nextNode));
 	    }
 
 	    @BuilderMethod
 	    public void oasisEdges() {
-	        var node = get("oasis");
-	        var choice = new MenuChoice(MenuChoice.Options.Choose); 
-	        var nextNode = get("someNextNode");  // Specify appropriate next node based on game logic
+	        var node = get(MyNodeLabels.Oasis.toString());
+	        var choice = new CloseNarrationChoice();
+	        var nextNode = get(MyNodeLabels.safetyConversation.toString());  
 	        node.add(new Edge(choice, nextNode));
 	    }
 
 	    @BuilderMethod
 	    public void runfromanimalEdges() {
-	        var node = get("runfromanimal");
-	        var choice = new MenuChoice(MenuChoice.Options.Choose);
-	        var nextNode = get("someNextNode");  // Specify appropriate next node based on game logic
+	        var node = get(MyNodeLabels.runFromAnimal.toString());
+	        var choice = new CloseNarrationChoice();
+	        var nextNode = get(MyNodeLabels.lostInForest.toString()); 
 	        node.add(new Edge(choice, nextNode));
 	    }
 
 	    @BuilderMethod
 	    public void followwatertrailEdges() {
-	        var node = get("followwatertrail");
-	        var choice = new MenuChoice(MenuChoice.Options.Choose);
-	        var nextNode = get("someNextNode");  // Specify appropriate next node based on game logic
+	        var node = get(MyNodeLabels.followWaterTrail.toString());
+	        var choice = new CloseNarrationChoice();
+	        var nextNode = get(MyNodeLabels.lostInForest.toString());   
 	        node.add(new Edge(choice, nextNode));
 	    }
 
 	    @BuilderMethod
 	    public void seehutEdges() {
-	        var node = get("seehut");
-	        var choice = new MenuChoice(MenuChoice.Options.Choose);
-	        var nextNode = get("someNextNode");  // Specify appropriate next node based on game logic
+	        var node = get(MyNodeLabels.seeHut.toString());
+	        var choice = new CloseNarrationChoice();
+	        var nextNode = get(MyNodeLabels.safetyConversation.toString());  
 	        node.add(new Edge(choice, nextNode));
 	    }
 
 	    @BuilderMethod
 	    public void lostinforestEdges() {
-	        var node = get("lostinforest");
-	        var choice = new MenuChoice(MenuChoice.Options.Choose);
-	        var nextNode = get("someNextNode");  // Specify appropriate next node based on game logic
-	        node.add(new Edge(choice, nextNode));
+	        var node = get(MyNodeLabels.lostInForest.toString());
+	        var choice1 = new DialogChoice("Lets Go North!");
+	        var nextNode1 = get(MyNodeLabels.north.toString()); 
+	        node.add(new Edge(choice1, nextNode1));
+	        var choice2 = new DialogChoice("Lets Go South!");
+	        var nextNode2 = get(MyNodeLabels.south.toString());
+	        node.add(new Edge(choice2, nextNode2));
 	    }
 
 	    @BuilderMethod
 	    public void safetyconversationEdges() {
-	        var node = get("safetyconversation");
-	        var choice = new MenuChoice(MenuChoice.Options.Choose);
-	        var nextNode = get("someNextNode");  // Specify appropriate next node based on game logic
-	        node.add(new Edge(choice, nextNode));
+	        var node = get(MyNodeLabels.safetyConversation.toString());
+	        var choice1 = new DialogChoice("Lets go with them!");
+	        var nextNode1 = get(MyNodeLabels.goWithParty.toString());  
+	        node.add(new Edge(choice1, nextNode1));
+	        var choice2 = new DialogChoice("Lets go without them!");
+	        var nextNode2 = get(MyNodeLabels.goAlone.toString());
+	        node.add(new Edge(choice2, nextNode2));
 	    }
 
 	    @BuilderMethod
 	    public void dyingpersonEdges() {
-	        var node = get("dyingperson");
-	        var choice = new MenuChoice(MenuChoice.Options.Choose);
-	        var nextNode = get("someNextNode");  // Specify appropriate next node based on game logic
-	        node.add(new Edge(choice, nextNode));
+	        var node = get(MyNodeLabels.dyingPerson.toString());
+	        var choice1 = new DialogChoice("I'm Staying!");
+	        var nextNode1 = get(MyNodeLabels.stayWithDyingPerson.toString());  
+	        node.add(new Edge(choice1, nextNode1));
+	        var choice2 = new DialogChoice("I'm Leaving!");
+	        var nextNode2 = get(MyNodeLabels.leaveDyingPerson.toString());
+	        node.add(new Edge(choice2, nextNode2));
 	    }
 
 	    @BuilderMethod
 	    public void northEdges() {
-	        var node = get("north");
-	        var choice = new MenuChoice(MenuChoice.Options.Choose);
-	        var nextNode = get("someNextNode");  // Specify appropriate next node based on game logic
+	        var node = get(MyNodeLabels.north.toString());
+	        var choice = new CloseNarrationChoice();
+	        var nextNode = get(MyNodeLabels.dyingPerson.toString());  
 	        node.add(new Edge(choice, nextNode));
 	    }
 
 	    @BuilderMethod
 	    public void staywithdyingpersonEdges() {
-	        var node = get("staywithdyingperson");
-	        var choice = new MenuChoice(MenuChoice.Options.Choose);
-	        var nextNode = get("someNextNode");  // Specify appropriate next node based on game logic
-	        node.add(new Edge(choice, nextNode));
+	        var node = get(MyNodeLabels.stayWithDyingPerson.toString());
+	        var choice1 = new PlayerInteraction(MyChoiceLabels.searchBody.toString(), MyStoryEntities.son,Icons.kneel,"You Search the body");
+	        var nextNode1 = get(MyNodeLabels.searchBody.toString()); 
+	        node.add(new Edge(choice1, nextNode1));
+	        var choice2 = new DialogChoice("Cry!!");
+	        var nextNode2 = get(MyNodeLabels.sitThereAndCry.toString());
+	        node.add(new Edge(choice2, nextNode2));
 	    }
 
 	    @BuilderMethod
 	    public void leavedyingpersonEdges() {
-	        var node = get("leavedyingperson");
-	        var choice = new MenuChoice(MenuChoice.Options.Choose);
-	        var nextNode = get("someNextNode");  // Specify appropriate next node based on game logic
+	        var node = get(MyNodeLabels.leaveDyingPerson.toString());
+	        var choice = new CloseNarrationChoice();
+	        var nextNode = get(MyNodeLabels.lastCar.toString()); 
 	        node.add(new Edge(choice, nextNode));
 	    }
 
 	    @BuilderMethod
 	    public void searchbodyEdges() {
-	        var node = get("searchbody");
-	        var choice = new MenuChoice(MenuChoice.Options.Choose);
-	        var nextNode = get("someNextNode");  // Specify appropriate next node based on game logic
+	        var node = get(MyNodeLabels.searchBody.toString());
+	        var choice = new CloseNarrationChoice();
+	        var nextNode = get(MyNodeLabels.afterDeath.toString());  
 	        node.add(new Edge(choice, nextNode));
 	    }
 
 	    @BuilderMethod
 	    public void sitthereandcryEdges() {
 	        var node = get("sitthereandcry");
-	        var choice = new MenuChoice(MenuChoice.Options.Choose);
-	        var nextNode = get("someNextNode");  // Specify appropriate next node based on game logic
+	        var choice = new CloseNarrationChoice();
+	        var nextNode = get(MyNodeLabels.afterDeath.toString());  
 	        node.add(new Edge(choice, nextNode));
 	    }
 
 	    @BuilderMethod
 	    public void afterdeathEdges() {
-	        var node = get("afterdeath");
-	        var choice = new MenuChoice(MenuChoice.Options.Choose);
-	        var nextNode = get("someNextNode");  // Specify appropriate next node based on game logic
+	        var node = get(MyNodeLabels.afterDeath.toString());
+	        var choice = new CloseNarrationChoice();
+	        var nextNode = get(MyNodeLabels.lastCar.toString());  
 	        node.add(new Edge(choice, nextNode));
 	    }
 
 	    @BuilderMethod
 	    public void gowithpartyEdges() {
-	        var node = get("gowithparty");
-	        var choice = new MenuChoice(MenuChoice.Options.Choose);
-	        var nextNode = get("someNextNode");  // Specify appropriate next node based on game logic
-	        node.add(new Edge(choice, nextNode));
+	        var node = get(MyNodeLabels.goWithParty.toString());
+	        var choice1 = new DialogChoice("NOO RUNN!");
+	        var nextNode1 = get(MyNodeLabels.runAwayFromParty.toString()); 
+	        node.add(new Edge(choice1, nextNode1));
+	        var choice2 = new DialogChoice("I'll do anything");
+	        var nextNode2  = get(MyNodeLabels.complyWithParty.toString());
+	        node.add(new Edge(choice2, nextNode2));
 	    }
 
 	    @BuilderMethod
 	    public void goaloneEdges() {
-	        var node = get("goalone");
-	        var choice = new MenuChoice(MenuChoice.Options.Choose);
-	        var nextNode = get("someNextNode");  // Specify appropriate next node based on game logic
+	        var node = get(MyNodeLabels.goAlone.toString());
+	        var choice = new CloseNarrationChoice();
+	        var nextNode = get(MyNodeLabels.dyingPerson.toString()); 
 	        node.add(new Edge(choice, nextNode));
 	    }
 
 	    @BuilderMethod
 	    public void complywithpartyEdges() {
-	        var node = get("complywithparty");
-	        var choice = new MenuChoice(MenuChoice.Options.Choose);
-	        var nextNode = get("someNextNode");  // Specify appropriate next node based on game logic
+	        var node = get(MyNodeLabels.complyWithParty.toString());
+	        var choice = new CloseNarrationChoice();
+	        var nextNode = get(MyNodeLabels.lostInForest.toString()); 
 	        node.add(new Edge(choice, nextNode));
 	    }
 
 	    @BuilderMethod
 	    public void runawayfrompartyEdges() {
-	        var node = get("runawayfromparty");
-	        var choice = new MenuChoice(MenuChoice.Options.Choose);
-	        var nextNode = get("someNextNode");  // Specify appropriate next node based on game logic
+	        var node = get(MyNodeLabels.runAwayFromParty.toString());
+	        var choice = new CloseNarrationChoice();
+	        var nextNode = get(MyNodeLabels.lostInForest.toString()); 
 	        node.add(new Edge(choice, nextNode));
 	    }
 
 	    @BuilderMethod
 	    public void southEdges() {
-	        var node = get("south");
-	        var nextNode = get("someNextNode");  // Specify appropriate next node based on game logic
+	        var node = get(MyNodeLabels.south.toString());
+	        var choice = new CloseNarrationChoice();
+	        var nextNode = get(MyNodeLabels.dyingPerson.toString()); 
 	        node.add(new Edge(choice, nextNode));
 	    }
 
 	    @BuilderMethod
 	    public void lastcarEdges() {
-	        var node = get("lastcar");
-	        var choice = new MenuChoice(MenuChoice.Options.Choose);
-	        var nextNode = get("someNextNode");  // Specify appropriate next node based on game logic
-	        node.add(new Edge(choice, nextNode));
+	        var node = get(MyNodeLabels.lastCar.toString());
+	        var choice1 = new PlayerInteraction(MyChoiceLabels.searchBody.toString(), MyStoryEntities.car,Icons.kneel,"You try to start the car");
+	        var nextNode1 = get(MyNodeLabels.goToCity.toString()); 
+	        node.add(new Edge(choice1, nextNode1));
+	        var choice2 = new DialogChoice("I'm not falling for that again");
+	        var nextNode2 = get(MyNodeLabels.dontGoToCity.toString());
+	        node.add(new Edge(choice2, nextNode2));
 	    }
-
-	    @BuilderMethod
-	    public void dontgotocityEdges() {
-	        var node = get("dontgotocity");
-	        var choice = new MenuChoice(MenuChoice.Options.Choose);
-	        var nextNode = get("someNextNode");  // Specify appropriate next node based on game logic
-	        node.add(new Edge(choice, nextNode));
-	    }
-
-	    @BuilderMethod
-	    public void gotocityEdges() {
-	        var node = get("gotocity");
-	        var choice = new MenuChoice(MenuChoice.Options.Choose);
-	        var nextNode = get("someNextNode");  // Specify appropriate next node based on game logic
-	        node.add(new Edge(choice, nextNode));
-	    }
+//
+//	    @BuilderMethod
+//	    public void dontgotocityEdges() {
+//	        var node = get("dontgotocity");
+//	        var choice = new MenuChoice(MenuChoice.Options.Choose);
+//	        var nextNode = get("someNextNode");  // Specify appropriate next node based on game logic
+//	        node.add(new Edge(choice, nextNode));
+//	    }
+//
+//	    @BuilderMethod
+//	    public void gotocityEdges() {
+//	        var node = get("gotocity");
+//	        var choice = new MenuChoice(MenuChoice.Options.Choose);
+//	        var nextNode = get("someNextNode");  // Specify appropriate next node based on game logic
+//	        node.add(new Edge(choice, nextNode));
+//	    }
 }
