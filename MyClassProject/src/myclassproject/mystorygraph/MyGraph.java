@@ -1,5 +1,6 @@
 package myclassproject.mystorygraph;
 
+import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -12,7 +13,7 @@ public class MyGraph extends Graph {
 	/**
 	 * The constructor creates a new object for each of the values in NodeLabels enum.
 	 */
-	public MyGraph(MyNodeLabels rootLabel) {
+	public MyGraph(List<String> list) {
 		super(Stream.of(MyNodeLabels.values()).map(z->z.toString()).collect(Collectors.toList()));    
 	}
 	
@@ -29,5 +30,7 @@ public class MyGraph extends Graph {
 	public NodeBuilder getEdgeBuilder() {
 		return new MyEdgeBuilder(nodes);
 	}
+	
+	
 
 }
